@@ -1,8 +1,8 @@
 <?php 
 /*
-Plugin Name:       Dismiss Updates Nag
-Plugin URI:        https://github.com/luciano-croce/dismiss-updates-nag/
-Description:       Dismiss "<strong>Update Core</strong>" nag on dashboard, <strong>"Indicators"</strong> on admin menu and admin tool bar, <strong>"Maintenance Mode"</strong>, when is activated, or automatically, if it is in mu-plugins directory.
+Plugin Name:       Dismiss Update Nag
+Plugin URI:        https://github.com/luciano-croce/dismiss-update-nag/
+Description:       Dismiss "<strong>Core Update</strong>" nag on dashboard, <strong>"Indicators"</strong> on admin menu and admin tool bar, <strong>"Maintenance Mode"</strong>, when is activated, or automatically, if it is in mu-plugins directory.
 Version:           1.0.0
 Requires at least: 2.3
 Tested up to:      5.0
@@ -11,10 +11,10 @@ Author:            Luciano Croce
 Author URI:        https://github.com/luciano-croce/
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:       dismiss-updates-nag
+Text Domain:       dismiss-update-nag
 Domain Path:       /languages
 Network:           true
-GitHub Plugin URI: https://github.com/luciano-croce/dismiss-updates-nag/
+GitHub Plugin URI: https://github.com/luciano-croce/dismiss-update-nag/
 GitHub Branch:     master
 Requires WP:       2.3
  *
@@ -43,7 +43,7 @@ Requires WP:       2.3
  * - Complete plugin was be available on GitHub before the time of submission.
  * - This plugin respect trademarks, copyrights, and project names.
  *
- * Tips - A neat trick, is to put this single file dismiss-updates-nag.php (not its parent directory)
+ * Tips - A neat trick, is to put this single file dismiss-update-nag.php (not its parent directory)
  * in the /wp-content/mu-plugins/ directory (create it if not exists) so you won't even have to enable it,
  * and will be loaded by default, also, since first step installation of WordPress setup!
  *
@@ -54,15 +54,15 @@ Requires WP:       2.3
  */
 
 	/**
-	 * Dismiss Updates Nag
+	 * Dismiss Update Nag
 	 *
-	 * Dismiss automatically updates nagging on dashboard, admin menu, and admin tool bar.
+	 * Dismiss automatically update nagging on dashboard, admin menu, and admin tool bar.
 	 *
 	 * PHPDocumentor
 	 *
 	 * @package    WordPress\Plugin
-	 * @subpackage Dashboard\Dismiss_Updates_Nag
-	 * @link       https://wordpress.org/plugins/dismiss-updates-nag/
+	 * @subpackage Dashboard\Dismiss_Update_Nag
+	 * @link       https://wordpress.org/plugins/dismiss-update-nag/
 	 * @version    1.0.1 (Build 2018-01-07) Stable
 	 * @since      1.0.0 (Build 2013-12-12) 1st Release
 	 * @author     Luciano Croce <luciano.croce@gmail.com>
@@ -109,7 +109,7 @@ $version = str_replace( '-src', '', $wp_version );
  * @since   1.0.0 (Build 2013-12-12)
  */
 if ( version_compare( PHP_VERSION, '5.2.4', '<' ) ) {
-// wp_die( __( 'This plugin requires PHP 5.2.4 or greater: Activation Stopped! Please note that a good choice is PHP 5.6+ ~ 7.1+ (previous stable branch) or PHP 7.2+ (current stable branch).', 'dismiss-updates-nag' ) ); # uncomment it if you prefer die notification
+// wp_die( __( 'This plugin requires PHP 5.2.4 or greater: Activation Stopped! Please note that a good choice is PHP 5.6+ ~ 7.1+ (previous stable branch) or PHP 7.2+ (current stable branch).', 'dismiss-update-nag' ) ); # uncomment it if you prefer die notification
 
 	add_action( 'admin_init', 'ddwcun_psd_php_version_init', 0 );
 	add_action( 'admin_notices', 'ddwcun_ant_php_version_init' );
@@ -137,12 +137,12 @@ if ( version_compare( PHP_VERSION, '5.2.4', '<' ) ) {
 		?>
 		<div class="notice notice-error is-dismissible error">
 		<p>
-		<?php _e( 'This plugin requires PHP 5.2.4 or greater: please note that a good choice is PHP 5.6+ ~ 7.1+ (previous stable branch) or PHP 7.2+ (current stable branch).', 'dismiss-updates-nag' );?>
+		<?php _e( 'This plugin requires PHP 5.2.4 or greater: please note that a good choice is PHP 5.6+ ~ 7.1+ (previous stable branch) or PHP 7.2+ (current stable branch).', 'dismiss-update-nag' );?>
 		</p>
 		</div>
 		<div class="notice notice-warning is-dismissible updated">
 		<p>
-		<?php _e( 'Plugin', 'dismiss-updates-nag' ) . ' ' . _e( 'Dismiss Updates Nag', 'dismiss-updates-nag' ) . ' ' . '<strong>' . _e( 'not activated', 'dismiss-updates-nag' ) . '</strong>' . '.';?>
+		<?php _e( 'Plugin', 'dismiss-update-nag' ) . ' ' . _e( 'Dismiss Update Nag', 'dismiss-update-nag' ) . ' ' . '<strong>' . _e( 'not activated', 'dismiss-update-nag' ) . '</strong>' . '.';?>
 		<script>window.jQuery && jQuery( function( $ ) { $( 'div#message.updated' ).remove(); } );</script> <!-- This script remove update message when plugin is auto deactivated -->
 		</p>
 		</div>
@@ -158,7 +158,7 @@ if ( version_compare( PHP_VERSION, '5.2.4', '<' ) ) {
  * @since   1.0.0 (Build 2013-12-12)
  */
 if ( version_compare( $version, '2.3', '<' ) ) {
-// wp_die( __( 'This plugin requires WordPress 2.3+ or greater: Activation Stopped! Please note that the Core Update Nag was introduced since WordPress 2.3+', 'dismiss-updates-nag' ) ); # uncomment it if you prefer die notification
+// wp_die( __( 'This plugin requires WordPress 2.3+ or greater: Activation Stopped! Please note that the Core Update Nag was introduced since WordPress 2.3+', 'dismiss-update-nag' ) ); # uncomment it if you prefer die notification
 
 	add_action( 'admin_init', 'ddwcun_psd_wp_version_init', 0 );
 	add_action( 'admin_notices', 'ddwcun_ant_wp_version_init' );
@@ -186,12 +186,12 @@ if ( version_compare( $version, '2.3', '<' ) ) {
 		?>
 		<div class="notice notice-error is-dismissible error">
 		<p>
-		<?php _e( 'This plugin requires WordPress 2.3+ or greater: please note that the Core Update Nag was introduced since WordPress 2.3+', 'dismiss-updates-nag' );?>
+		<?php _e( 'This plugin requires WordPress 2.3+ or greater: please note that the Core Update Nag was introduced since WordPress 2.3+', 'dismiss-update-nag' );?>
 		</p>
 		</div>
 		<div class="notice notice-warning is-dismissible updated">
 		<p>
-		<?php _e( 'Plugin', 'dismiss-updates-nag' ) . ' - ' . _e( 'Dismiss Updates Nag', 'dismiss-updates-nag' ) . ' - ' . '<strong>' . _e( 'not activated', 'dismiss-updates-nag' ) . '</strong>' . '.';?>
+		<?php _e( 'Plugin', 'dismiss-update-nag' ) . ' - ' . _e( 'Dismiss Update Nag', 'dismiss-update-nag' ) . ' - ' . '<strong>' . _e( 'not activated', 'dismiss-update-nag' ) . '</strong>' . '.';?>
 		<script>window.jQuery && jQuery( function( $ ) { $( 'div#message.updated' ).remove(); } );</script> <!-- This script remove update message when plugin is auto deactivated -->
 		</p>
 		</div>
@@ -204,16 +204,16 @@ else {
 		add_filter( 'plugins_loaded', 'ddwcun_load_muplugin_textdomain' );
 	}
 	if ( version_compare( $version, '3.0', '>=' ) ) {
-		add_filter( 'wp_dashboard_setup',         'ddwcun_dismiss_updates_core_maintenance_nag', 100 ); # 2.7+ to 4.9+ ~ 5.0-alpha
+		add_filter( 'wp_dashboard_setup',         'ddwcun_dismiss_core_update_maintenance_nag', 100 ); # 2.7+ to 4.9+ ~ 5.0-alpha
 	}
 	if ( version_compare( $version, '3.1', '>=' ) ) {
-		add_filter( 'wp_user_dashboard_setup',    'ddwcun_dismiss_updates_core_maintenance_nag', 100 ); # 3.1+ to 4.9+ ~ 5.0-alpha 
+		add_filter( 'wp_user_dashboard_setup',    'ddwcun_dismiss_core_update_maintenance_nag', 100 ); # 3.1+ to 4.9+ ~ 5.0-alpha 
 	}
 	if ( version_compare( $version, '3.1', '>=' ) ) {
-		add_filter( 'wp_network_dashboard_setup', 'ddwcun_dismiss_updates_core_maintenance_nag', 100 ); # 3.1+ to 4.9+ ~ 5.0-alpha
+		add_filter( 'wp_network_dashboard_setup', 'ddwcun_dismiss_core_update_maintenance_nag', 100 ); # 3.1+ to 4.9+ ~ 5.0-alpha
 	}
-	add_filter( 'admin_head',                 'ddwcun_dismiss_updates_core_message_nag'              ); # 2.3+ only
-	add_filter( 'admin_init',                 'ddwcun_dismiss_updates_core_message_nag'              ); # 2.5+ to 4.9+ ~ 5.0-alpha
+	add_filter( 'admin_head',                 'ddwcun_dismiss_core_update_message_nag'              ); # 2.3+ only
+	add_filter( 'admin_init',                 'ddwcun_dismiss_core_update_message_nag'              ); # 2.5+ to 4.9+ ~ 5.0-alpha
 	if ( version_compare( $version, '3.0', '>=' ) ) {
 		add_filter( 'admin_menu',             'ddwcun_dismiss_admin_menu_updates_indicator'          ); # 3.0+ to 4.9+ ~ 5.0-alpha
 	}
@@ -235,7 +235,7 @@ else {
 	 * @since   1.0.0 (Build 2013-12-12)
 	 */
 	function ddwcun_load_plugin_textdomain() {
-		load_plugin_textdomain( 'dismiss-updates-nag', false, basename( dirname( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'dismiss-update-nag', false, basename( dirname( __FILE__ ) ) . '/languages' );
 	}
 
 	/**
@@ -246,7 +246,7 @@ else {
 	 * @since   1.0.0 (Build 2013-12-12)
 	 */
 	function ddwcun_load_muplugin_textdomain() {
-		load_muplugin_textdomain( 'dismiss-updates-nag', basename( dirname( __FILE__ ) ) . '/languages' );
+		load_muplugin_textdomain( 'dismiss-update-nag', basename( dirname( __FILE__ ) ) . '/languages' );
 	}
 
 	/**
@@ -259,7 +259,7 @@ else {
 	function ddwcun_dismiss_admin_menu_updates_indicator()
 		{
 			global $submenu;
-			$submenu['index.php'][10][0] = __( 'Updates', 'dismiss-updates-nag' );
+			$submenu['index.php'][10][0] = __( 'Updates', 'dismiss-update-nag' );
 		}
 
 	/**
@@ -272,11 +272,11 @@ else {
 	function ddwcun_dismiss_admin_menu_plugins_indicator()
 		{
 			global $menu;
-			$menu[65][0] = __( 'Plugins', 'dismiss-updates-nag' );
+			$menu[65][0] = __( 'Plugins', 'dismiss-update-nag' );
 		}
 
 	/**
-	 * Dismiss Admin Bar Nodes (updates)
+	 * Dismiss Admin Bar Updates Node
 	 *
 	 * @author  Luciano Croce <luciano.croce@gmail.com>
 	 * @version 1.0.1 (Build 2018-01-07)
@@ -289,7 +289,7 @@ else {
 		}
 
 	/**
-	 * Dismiss Toolbar Nodes (updates)
+	 * Dismiss Toolbar Updates Node
 	 *
 	 * @author  Luciano Croce <luciano.croce@gmail.com>
 	 * @version 1.0.1 (Build 2018-01-07)
@@ -301,7 +301,7 @@ else {
 		}
 
 	/**
-	 * Dismiss Update Core Maintenance Nag - ddwcun
+	 * Dismiss Core Update Maintenance Nag - ddwcun
 	 *
 	 * This, is different from the other similar plugins, because uses the filter hook, and not the action hook.
 	 *
@@ -313,13 +313,13 @@ else {
 	 * @version 1.0.1 (Build 2018-01-07)
 	 * @since   1.0.0 (Build 2013-12-12)
 	 */
-	function ddwcun_dismiss_updates_core_maintenance_nag() {
+	function ddwcun_dismiss_core_update_maintenance_nag() {
 		remove_filter( 'admin_notices', 'maintenance_nag' );
 		remove_filter( 'network_admin_notices', 'maintenance_nag' );
 	}
 
 	/**
-	 * Remove Update Core Messages Nag - ddwcun
+	 * Remove Core Update Message Nag - ddwcun
 	 *
 	 * This, is different from the other similar plugins, because uses the filter hook, and not the action hook.
 	 *
@@ -331,7 +331,7 @@ else {
 	 * @version 1.0.1 (Build 2018-01-07)
 	 * @since   1.0.0 (Build 2013-12-12)
 	 */
-	function ddwcun_dismiss_updates_core_message_nag() {
+	function ddwcun_dismiss_core_update_message_nag() {
 		remove_filter( 'admin_notices', 'update_nag', 3 );
 		remove_filter( 'network_admin_notices', 'update_nag', 3 );
 	}
