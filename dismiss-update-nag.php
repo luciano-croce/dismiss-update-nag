@@ -3,7 +3,7 @@
 Plugin Name:       Dismiss Update Nag
 Plugin URI:        https://github.com/luciano-croce/dismiss-update-nag/
 Description:       Dismiss "<strong>Core Update</strong>" nag on dashboard, <strong>"Indicators"</strong> on admin menu and admin tool bar, <strong>"Maintenance Mode"</strong>, when is activated, or automatically, if it is in mu-plugins directory.
-Version:           1.0.0
+Version:           1.0.1
 Requires at least: 2.3
 Tested up to:      5.0
 Requires PHP:      5.2.4
